@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include<stdlib.h>
 
 #define LONG_TIME (0xffffffff/8)
 
@@ -56,7 +57,22 @@ static void no_children(void) {
 	return;
 }
 
+void branch1(int prob) {
+	for(int i = 0; i < LONG_TIME; ++i) {
+		if(100*rand() < prob) {
+			asm("nop;");
+		}
+	}
+}
+
 int main(int argc, char **argv) {
+
+	int prob1 = atoi(argv[1]);
+	// int prob2 = int(argv[2]);
+	// int prob3 = int(argv[3]);
+
+	branch1(prob1);
+
 	printf("\n Inside main()\n");
 	int i = 0;
 
