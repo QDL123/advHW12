@@ -57,7 +57,23 @@ static void no_children(void) {
 	return;
 }
 
-void branchFunction(int prob) {
+void branch1(int prob) {
+	for(int i = 0; i < 100; ++i) {
+		if(i < prob) {
+			asm("nop;");
+		}
+	}
+}
+
+void branch2(int prob) {
+	for(int i = 0; i < 100; ++i) {
+		if(i < prob) {
+			asm("nop;");
+		}
+	}
+}
+
+void branch3(int prob) {
 	for(int i = 0; i < 100; ++i) {
 		if(i < prob) {
 			asm("nop;");
@@ -71,9 +87,9 @@ int main(int argc, char **argv) {
 	int prob2 = atoi(argv[2]);
 	int prob3 = atoi(argv[3]);
 
-	branchFunction(prob1);
-	branchFunction(prob2);
-	branchFunction(prob3);
+	branch1(prob1);
+	branch2(prob2);
+	branch3(prob3);
 
 	printf("\n Inside main()\n");
 	int i = 0;
