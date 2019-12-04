@@ -59,7 +59,7 @@ static void no_children(void) {
 
 void branchFunction(int prob) {
 	for(int i = 0; i < 100; ++i) {
-		if(prob < i) {
+		if(i < prob) {
 			asm("nop;");
 		}
 	}
